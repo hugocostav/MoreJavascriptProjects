@@ -34,5 +34,15 @@ function addWordToDOM() {
 addWordToDOM();
 
 function updateScore() {
-    
+    score++;
+    scoreEl.innerHTML = score;
+}
+
+function updateTime() {
+    time--;
+    timeEl.innerHTML = time + 's';
+    if(time === 0) {
+        clearInterval(timeInterval);
+        gameOver();
+    }
 }
