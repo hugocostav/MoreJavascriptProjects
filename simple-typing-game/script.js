@@ -53,3 +53,22 @@ function gameOver() {
         <button onclick="location.reload()">Restart</button>`;
     endgameEl.style.display = 'flex';
 }
+
+text.addEventListener('input', (e) => {
+    const insertedText = e.target.value;
+    if(insertedText === randomWord) {
+        addWordToDOM();
+        updateScore();
+
+        e.target.value = '';
+        if(difficulty === 'hard') {
+            time += 2;
+        } else if(difficulty === 'medium') {
+            time += 3;
+        } else {
+            time += 4;
+        }
+
+        updateTime();
+    }
+})
