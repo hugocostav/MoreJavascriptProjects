@@ -42,3 +42,15 @@ function showNotes() {
     }
 }
 
+function deleteNotes(index) {
+    console.log("I am deleted", index);
+    let notes = localStorage.getItem('notes');
+    if(notes === null) {
+        notesObj = [];
+    } else {
+        notesObj = JSON.parse(notes);
+    }
+    notesObj.splice(index, 1);
+    localStorage.setItem('notes', JSON.stringify(notesObj));
+    showNotes();
+}
